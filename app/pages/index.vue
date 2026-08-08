@@ -31,7 +31,7 @@ const features = [
   },
   {
     icon: '🌐',
-    title: '연합(페디버스)',
+    title: '연합(Fediverse)',
     desc: '마스토돈·미스키 같은 외부 페디버스 서버와 연결돼, 더 넓은 세계와 이어져요.',
   },
 ]
