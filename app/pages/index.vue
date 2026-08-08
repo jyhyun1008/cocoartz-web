@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // TODO: 실제 서비스 도메인이 정해지면 교체
-const appUrl = 'https://cocoartz.net'
+const appUrl = 'https://coco.gongran.studio'
 const githubUrl = 'https://github.com/jyhyun1008/cocoartz-nuxt'
 
 const features = [
@@ -55,21 +55,34 @@ const points = [
           <a href="#features">기능</a>
           <a :href="githubUrl" target="_blank" rel="noopener">GitHub</a>
         </nav>
-        <a :href="appUrl" class="btn btn-primary btn-small" target="_blank" rel="noopener">시작하기</a>
+        <a :href="appUrl" class="btn btn-primary btn-small" target="_blank" rel="noopener">구경하기</a>
       </div>
     </header>
 
     <main>
       <section id="top" class="hero">
-        <img src="/cocoartz.png" alt="코코아츠 로고" class="hero-logo" />
-        <h1>내 캐릭터가 돌아다니는<br />커뮤니티 공간, 코코아츠</h1>
-        <p class="hero-sub">
-          아이소메트릭 마을 위에서 캐릭터로 돌아다니며 대화하고, 글을 쓰고,<br class="br-desktop" />
-          다른 페디버스 서버와도 연결되는 커뮤니티 플랫폼이에요.
-        </p>
-        <div class="hero-actions">
-          <a :href="appUrl" class="btn btn-primary" target="_blank" rel="noopener">지금 시작하기</a>
-          <a href="#features" class="btn btn-ghost">기능 둘러보기</a>
+        <div class="hero-content">
+          <img src="/cocoartz.png" alt="코코아츠 로고" class="hero-logo" />
+          <h1>내 캐릭터가 돌아다니는<br />커뮤니티 공간, 코코아츠</h1>
+          <p class="hero-sub">
+            아이소메트릭 마을 위에서 캐릭터로 돌아다니며 대화하고, 글을 쓰고,<br class="br-desktop" />
+            다른 페디버스 서버와도 연결되는 커뮤니티 플랫폼이에요.
+          </p>
+          <div class="hero-actions">
+            <a :href="appUrl" class="btn btn-primary" target="_blank" rel="noopener">테스트서버 구경하기</a>
+            <a href="#features" class="btn btn-ghost">기능 둘러보기</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase">
+        <div class="showcase-frame">
+          <div class="showcase-bar">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <img src="/screenshot.png" alt="코코아츠 실제 화면 — 아이소메트릭 마을과 채팅창" class="showcase-img" />
         </div>
       </section>
 
@@ -91,10 +104,20 @@ const points = [
         </div>
       </section>
 
+      <section class="typeface">
+        <p class="typeface-label">코코아츠 전용 서체</p>
+        <p class="typeface-sample">그리운 코코아체</p>
+        <p class="typeface-desc">
+          코코아츠 프로젝트만을 위해 새로 제작한 전용 폰트예요.
+          <br class="br-desktop" />
+          획을 단순화하고, 부드럽게 다듬은 담백한 고딕체랍니다.
+        </p>
+      </section>
+
       <section class="cta">
         <h2>지금 코코아츠에서 마을을 만들어보세요</h2>
-        <p>가입은 무료고, 몇 분이면 시작할 수 있어요.</p>
-        <a :href="appUrl" class="btn btn-primary" target="_blank" rel="noopener">코코아츠 시작하기</a>
+        <p>도커 허브에 빌드된 이미지를 이용해서, 단 몇 분이면 배포할 수 있어요.</p>
+        <a :href="appUrl" class="btn btn-primary" target="_blank" rel="noopener">코코아츠 구경하기</a>
       </section>
     </main>
 
@@ -194,9 +217,22 @@ const points = [
 }
 
 .hero {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-image: linear-gradient(180deg, rgba(20, 20, 26, 0.15) 0%, rgba(20, 20, 26, 0.35) 55%, var(--page-bg) 100%), url('/bg.png');
+  /* 이미지 레이어는 가로폭 기준으로만 맞춰서, 좌상단에 박힌 코코아츠 로고가
+     세로로 긴 화면에서 옆으로 잘려나가지 않게 함 (cover 대신 폭 100%) */
+  background-size: 100% 100%, 100% auto;
+  background-position: top, top;
+  background-repeat: no-repeat, no-repeat;
+}
+.hero-content {
+  position: relative;
   max-width: 720px;
-  margin: 0 auto;
-  padding: 96px 24px 72px;
+  padding: 200px 24px 160px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -207,23 +243,68 @@ const points = [
   height: 88px;
   border-radius: 22px;
   margin-bottom: 28px;
-  box-shadow: 0 16px 40px rgba(210, 31, 60, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 .hero h1 {
   font-size: 2.4rem;
   line-height: 1.35;
   margin: 0 0 20px;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
 }
 .hero-sub {
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.05rem;
   margin: 0 0 36px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
 .hero-actions {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.showcase {
+  max-width: 1080px;
+  margin: -64px auto 0;
+  padding: 0 24px 96px;
+  position: relative;
+  z-index: 1;
+}
+.showcase-frame {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  box-shadow: 0 32px 64px -24px rgba(0, 0, 0, 0.6);
+}
+.showcase-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-red {
+  background: #ff5f57;
+}
+.dot-yellow {
+  background: #febc2e;
+}
+.dot-green {
+  background: #28c840;
+}
+.showcase-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .points {
@@ -276,6 +357,34 @@ const points = [
 .feature-card p {
   color: var(--text-dim);
   font-size: 0.9rem;
+  margin: 0;
+}
+
+.typeface {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px 120px;
+  text-align: center;
+}
+.typeface-label {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px;
+}
+.typeface-sample {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, var(--accent), #ff7a8a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.typeface-desc {
+  color: var(--text-dim);
+  font-size: 0.95rem;
   margin: 0;
 }
 
@@ -335,10 +444,20 @@ const points = [
     display: none;
   }
   .hero {
-    padding: 64px 20px 56px;
+    min-height: 440px;
+  }
+  .hero-content {
+    padding: 120px 20px 96px;
   }
   .hero h1 {
     font-size: 1.9rem;
+  }
+  .showcase {
+    margin-top: -32px;
+    padding: 0 16px 64px;
+  }
+  .typeface-sample {
+    font-size: 2.2rem;
   }
   .points,
   .feature-grid {
