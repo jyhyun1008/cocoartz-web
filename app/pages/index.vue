@@ -284,7 +284,7 @@ const points = [
   align-items: center;
   gap: 7px;
   padding: 12px 16px;
-  background: var(--surface-2);
+  background: rgb(41, 39, 39);
   border-bottom: 1px solid var(--border);
 }
 .dot {
