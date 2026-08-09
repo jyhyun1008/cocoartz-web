@@ -117,7 +117,7 @@ const points = [
       <section class="cta">
         <h2>지금 코코아츠에서 마을을 만들어보세요</h2>
         <p>도커 허브에 빌드된 이미지를 이용해서, 단 몇 분이면 배포할 수 있어요.</p>
-        <a :href="appUrl" class="btn btn-primary" target="_blank" rel="noopener">코코아츠 구경하기</a>
+        <a :href="githubUrl" class="btn btn-primary" target="_blank" rel="noopener">코코아츠 리포지토리</a>
       </section>
     </main>
 
