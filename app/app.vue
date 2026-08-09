@@ -21,9 +21,9 @@
 :root {
   --accent: #D21F3C;
   --accent-hover: #b81a33;
-  --page-bg: #14141a;
-  --surface-1: #1a1a22;
-  --surface-2: #1e1e26;
+  --page-bg: #423836;
+  --surface-1: #5d504c;
+  --surface-2: #6c5c5a;
   --text: rgba(255, 255, 255, 0.92);
   --text-dim: rgba(255, 255, 255, 0.6);
   --border: rgba(255, 255, 255, 0.08);

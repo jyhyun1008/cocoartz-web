@@ -139,7 +139,7 @@ const points = [
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(20, 20, 26, 0.85);
+  background: rgba(45, 36, 36, 0.85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
