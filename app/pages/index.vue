@@ -42,6 +42,27 @@ const points = [
   { title: '닫혀있지 않아요', desc: '연합 기능으로 다른 서버의 사람들과도 소식을 주고받을 수 있어요.' },
 ]
 
+const craft = [
+  {
+    img: '/customize.png',
+    alt: '고양이 귀 이어머프와 세일러 코트를 맞춰 입은 캐릭터 두 명',
+    title: '자유로운 커스터마이징',
+    desc: '헤어·눈·의상까지 파츠를 하나하나 골라 조합해서, 나만의 캐릭터를 만들 수 있어요.',
+  },
+  {
+    img: '/font.png',
+    alt: '전용 서체 그리운 코코아체의 획 굵기·자간 가이드라인',
+    title: '전용 서체, 그리운 코코아체',
+    desc: '획을 단순화하고 부드럽게 다듬은 담백한 고딕체로, 코코아츠만의 손그림체예요. 지금 이 페이지도 이 폰트를 쓰고 있어요.',
+  },
+  {
+    img: '/sprite-stacking.png',
+    alt: '스프라이트 레이어를 쌓아 입체감을 만드는 시뮬레이터 화면',
+    title: '의사 3D 구현',
+    desc: '블록 왜곡(squash)과 스프라이트 스태킹을 활용해서, 납작한 2D 그림만으로 아이소메트릭한 입체감을 만들어냈어요.',
+  },
+]
+
 const worksheets = [
   {
     icon: '🪙',
@@ -119,14 +140,16 @@ const worksheets = [
         </div>
       </section>
 
-      <section class="typeface">
-        <p class="typeface-label">코코아츠 전용 서체</p>
-        <p class="typeface-sample">그리운 코코아체</p>
-        <p class="typeface-desc">
-          코코아츠 프로젝트만을 위해 새로 제작한 전용 폰트예요.
-          <br class="br-desktop" />
-          획을 단순화하고, 부드럽게 다듬은 담백한 고딕체랍니다.
-        </p>
+      <section class="craft" aria-labelledby="craft-title">
+        <p class="typeface-label">코코아츠의 디테일</p>
+        <h2 id="craft-title">작은 것 하나까지 정성을 들였어요</h2>
+        <div class="craft-grid">
+          <div v-for="c in craft" :key="c.title" class="craft-card">
+            <img :src="c.img" :alt="c.alt" class="craft-img" />
+            <h3>{{ c.title }}</h3>
+            <p>{{ c.desc }}</p>
+          </div>
+        </div>
       </section>
 
       <section class="worksheets" aria-labelledby="worksheets-title">
@@ -454,10 +477,10 @@ const worksheets = [
   font-weight: 700;
 }
 
-.typeface {
-  max-width: 640px;
+.craft {
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0 24px 120px;
+  padding: 24px 24px 96px;
   text-align: center;
 }
 .typeface-label {
@@ -467,19 +490,37 @@ const worksheets = [
   letter-spacing: 0.02em;
   margin: 0 0 12px;
 }
-.typeface-sample {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin: 0 0 20px;
-  background: linear-gradient(135deg, var(--accent), #ff7a8a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.craft h2 {
+  font-size: 1.7rem;
+  margin: 0 0 48px;
 }
-.typeface-desc {
+.craft-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+.craft-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.craft-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1279 / 791;
+  object-fit: cover;
+  background: #fff;
+}
+.craft-card h3 {
+  font-size: 1.05rem;
+  margin: 20px 24px 8px;
+}
+.craft-card p {
   color: var(--text-dim);
-  font-size: 0.95rem;
-  margin: 0;
+  font-size: 0.9rem;
+  margin: 0 24px 24px;
 }
 
 .cta {
@@ -550,11 +591,9 @@ const worksheets = [
     margin-top: -32px;
     padding: 0 16px 64px;
   }
-  .typeface-sample {
-    font-size: 2.2rem;
-  }
   .points,
   .feature-grid,
+  .craft-grid,
   .worksheet-grid {
     grid-template-columns: 1fr;
   }
