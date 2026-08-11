@@ -44,19 +44,19 @@ const points = [
 
 const craft = [
   {
-    img: '/customize.png',
+    img: './customize.png',
     alt: '고양이 귀 이어머프와 세일러 코트를 맞춰 입은 캐릭터 두 명',
     title: '자유로운 커스터마이징',
     desc: '헤어·눈·의상까지 파츠를 하나하나 골라 조합해서, 나만의 캐릭터를 만들 수 있어요.',
   },
   {
-    img: '/font.png',
+    img: './font.png',
     alt: '전용 서체 그리운 코코아체의 획 굵기·자간 가이드라인',
     title: '전용 서체, 그리운 코코아체',
     desc: '획을 단순화하고 부드럽게 다듬은 담백한 고딕체로, 코코아츠만의 손그림체예요. 지금 이 페이지도 이 폰트를 쓰고 있어요.',
   },
   {
-    img: '/sprite-stacking.png',
+    img: './sprite-stacking.png',
     alt: '스프라이트 레이어를 쌓아 입체감을 만드는 시뮬레이터 화면',
     title: '의사 3D 구현',
     desc: '블록 왜곡(squash)과 스프라이트 스태킹을 활용해서, 납작한 2D 그림만으로 아이소메트릭한 입체감을 만들어냈어요.',
