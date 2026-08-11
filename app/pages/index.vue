@@ -41,6 +41,21 @@ const points = [
   { title: '텍스트보다 생생하게', desc: '채팅방 목록 대신, 캐릭터가 걸어 다니는 마을에서 자연스럽게 마주쳐요.' },
   { title: '닫혀있지 않아요', desc: '연합 기능으로 다른 서버의 사람들과도 소식을 주고받을 수 있어요.' },
 ]
+
+const worksheets = [
+  {
+    icon: '🪙',
+    title: '경제 밸런스 계산기',
+    desc: '코인 수집·출석체크·농사 수입을 조합해서, 아이템 하나를 구매하는 데 드는 재화로 얼마가 적당한지 거꾸로 계산해보는 워크시트예요.',
+    href: 'https://claude.ai/code/artifact/6535892a-d47e-4976-a8f7-d1df23ae3070?org=6a7a1192-e87f-4f8a-865a-ce23df7424c7',
+  },
+  {
+    icon: '🧱',
+    title: '스프라이트 스태킹 시뮬레이터',
+    desc: '레이어 6장을 겹쳐서, 실제 맵에 놓였을 때와 똑같은 수식(squash·gap 보간, 그림자 트레일)으로 미리 확인해보는 도구예요.',
+    href: 'https://claude.ai/code/artifact/f71d675b-504d-408d-a1ca-88c9384b6db5?org=6a7a1192-e87f-4f8a-865a-ce23df7424c7',
+  },
+]
 </script>
 
 <template>
@@ -112,6 +127,31 @@ const points = [
           <br class="br-desktop" />
           획을 단순화하고, 부드럽게 다듬은 담백한 고딕체랍니다.
         </p>
+      </section>
+
+      <section class="worksheets" aria-labelledby="worksheets-title">
+        <p class="typeface-label">개발 워크시트</p>
+        <h2 id="worksheets-title">코코아츠 관리의 핵심, 살짝 공개해요</h2>
+        <p class="worksheets-lede">
+          실제 서버에 반영하기 전 테스트해볼 수 있는, 밸런스와 아이템  연출을 미리 만져보는 관리자용 도구예요.
+          <br />
+          클로드 아티팩트로 제작되었어요.
+        </p>
+        <div class="worksheet-grid">
+          <a
+            v-for="w in worksheets"
+            :key="w.title"
+            :href="w.href"
+            target="_blank"
+            rel="noopener"
+            class="worksheet-card"
+          >
+            <div class="worksheet-icon">{{ w.icon }}</div>
+            <h3>{{ w.title }}</h3>
+            <p>{{ w.desc }}</p>
+            <span class="worksheet-link">워크시트 열어보기 →</span>
+          </a>
+        </div>
       </section>
 
       <section class="cta">
@@ -360,6 +400,60 @@ const points = [
   margin: 0;
 }
 
+.worksheets {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 96px;
+  text-align: center;
+}
+.worksheets h2 {
+  font-size: 1.7rem;
+  margin: 0 0 12px;
+}
+.worksheets-lede {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin: 0 0 40px;
+}
+.worksheet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+.worksheet-card {
+  display: block;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.worksheet-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+.worksheet-icon {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+.worksheet-card h3 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+}
+.worksheet-card p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin: 0 0 16px;
+}
+.worksheet-link {
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
 .typeface {
   max-width: 640px;
   margin: 0 auto;
@@ -460,7 +554,8 @@ const points = [
     font-size: 2.2rem;
   }
   .points,
-  .feature-grid {
+  .feature-grid,
+  .worksheet-grid {
     grid-template-columns: 1fr;
   }
   .nav-links {
